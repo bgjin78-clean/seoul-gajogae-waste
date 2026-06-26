@@ -36,38 +36,38 @@ gallery_html = """
 
     <h3 class="gallery-subtitle">작업 전</h3>
     <div class="gallery-grid">
-      <img src="./images/before-01.jpg" alt="서울 폐기물처리 작업 전 사진 1">
-      <img src="./images/before-05.jpg" alt="서울 폐기물처리 작업 전 사진 2">
-      <img src="./images/before-09.jpg" alt="서울 폐기물처리 작업 전 사진 3">
-      <img src="./images/before-13.jpg" alt="서울 폐기물처리 작업 전 사진 4">
-      <img src="./images/before-17.jpg" alt="서울 폐기물처리 작업 전 사진 5">
-      <img src="./images/before-21.jpg" alt="서울 폐기물처리 작업 전 사진 6">
-      <img src="./images/before-25.jpg" alt="서울 폐기물처리 작업 전 사진 7">
-      <img src="./images/before-29.jpg" alt="서울 폐기물처리 작업 전 사진 8">
+      <img src="./images/main/before-01.jpg" alt="서울 폐기물처리 작업 전 사진 1">
+      <img src="./images/main/before-05.jpg" alt="서울 폐기물처리 작업 전 사진 2">
+      <img src="./images/main/before-09.jpg" alt="서울 폐기물처리 작업 전 사진 3">
+      <img src="./images/main/before-13.jpg" alt="서울 폐기물처리 작업 전 사진 4">
+      <img src="./images/main/before-17.jpg" alt="서울 폐기물처리 작업 전 사진 5">
+      <img src="./images/main/before-21.jpg" alt="서울 폐기물처리 작업 전 사진 6">
+      <img src="./images/main/before-25.jpg" alt="서울 폐기물처리 작업 전 사진 7">
+      <img src="./images/main/before-29.jpg" alt="서울 폐기물처리 작업 전 사진 8">
     </div>
 
     <h3 class="gallery-subtitle">작업 중</h3>
     <div class="gallery-grid">
-      <img src="./images/process-01.jpg" alt="서울 폐기물처리 작업 중 사진 1">
-      <img src="./images/process-04.jpg" alt="서울 폐기물처리 작업 중 사진 2">
-      <img src="./images/process-07.jpg" alt="서울 폐기물처리 작업 중 사진 3">
-      <img src="./images/process-10.jpg" alt="서울 폐기물처리 작업 중 사진 4">
-      <img src="./images/process-13.jpg" alt="서울 폐기물처리 작업 중 사진 5">
-      <img src="./images/process-16.jpg" alt="서울 폐기물처리 작업 중 사진 6">
-      <img src="./images/process-19.jpg" alt="서울 폐기물처리 작업 중 사진 7">
-      <img src="./images/process-22.jpg" alt="서울 폐기물처리 작업 중 사진 8">
+      <img src="./images/main/process-01.jpg" alt="서울 폐기물처리 작업 중 사진 1">
+      <img src="./images/main/process-04.jpg" alt="서울 폐기물처리 작업 중 사진 2">
+      <img src="./images/main/process-07.jpg" alt="서울 폐기물처리 작업 중 사진 3">
+      <img src="./images/main/process-10.jpg" alt="서울 폐기물처리 작업 중 사진 4">
+      <img src="./images/main/process-13.jpg" alt="서울 폐기물처리 작업 중 사진 5">
+      <img src="./images/main/process-16.jpg" alt="서울 폐기물처리 작업 중 사진 6">
+      <img src="./images/main/process-19.jpg" alt="서울 폐기물처리 작업 중 사진 7">
+      <img src="./images/main/process-22.jpg" alt="서울 폐기물처리 작업 중 사진 8">
     </div>
 
     <h3 class="gallery-subtitle">작업 후</h3>
     <div class="gallery-grid">
-      <img src="./images/after-01.jpg" alt="서울 폐기물처리 작업 후 사진 1">
-      <img src="./images/after-05.jpg" alt="서울 폐기물처리 작업 후 사진 2">
-      <img src="./images/after-09.jpg" alt="서울 폐기물처리 작업 후 사진 3">
-      <img src="./images/after-13.jpg" alt="서울 폐기물처리 작업 후 사진 4">
-      <img src="./images/after-17.jpg" alt="서울 폐기물처리 작업 후 사진 5">
-      <img src="./images/after-21.jpg" alt="서울 폐기물처리 작업 후 사진 6">
-      <img src="./images/after-25.jpg" alt="서울 폐기물처리 작업 후 사진 7">
-      <img src="./images/after-29.jpg" alt="서울 폐기물처리 작업 후 사진 8">
+      <img src="./images/main/after-01.jpg" alt="서울 폐기물처리 작업 후 사진 1">
+      <img src="./images/main/after-05.jpg" alt="서울 폐기물처리 작업 후 사진 2">
+      <img src="./images/main/after-09.jpg" alt="서울 폐기물처리 작업 후 사진 3">
+      <img src="./images/main/after-13.jpg" alt="서울 폐기물처리 작업 후 사진 4">
+      <img src="./images/main/after-17.jpg" alt="서울 폐기물처리 작업 후 사진 5">
+      <img src="./images/main/after-21.jpg" alt="서울 폐기물처리 작업 후 사진 6">
+      <img src="./images/main/after-25.jpg" alt="서울 폐기물처리 작업 후 사진 7">
+      <img src="./images/main/after-29.jpg" alt="서울 폐기물처리 작업 후 사진 8">
     </div>
   </div>
 </section>
