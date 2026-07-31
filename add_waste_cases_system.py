@@ -1,5 +1,6 @@
 from pathlib import Path
 import datetime
+import re
 
 ROOT = Path(__file__).resolve().parent
 DOMAIN = "https://www.seoul.gajogae-waste.com"
@@ -15,6 +16,16 @@ case_titles = [
     ("004", "송파구 대형가구 폐기물 처리 사례", "서울 송파구", "가정폐기물처리", "침대, 소파, 장롱 등 대형가구 중심으로 정리한 사례입니다."),
     ("005", "은평구 빈집정리 폐기물 처리 사례", "서울 은평구", "빈집정리", "오래 비어 있던 주거공간의 생활폐기물과 잔짐을 정리한 사례입니다."),
     ("006", "관악구 생활폐기물 정리 사례", "서울 관악구", "생활폐기물처리", "생활용품, 소형가구, 잡동사니를 분리 정리한 사례입니다."),
+    ("007", "서초구 아파트 가정폐기물 처리 사례", "서울 서초구", "가정폐기물처리", "아파트에 쌓여 있던 생활가구와 잔짐을 정리한 사례입니다."),
+    ("008", "강서구 이사폐기물 처리 사례", "서울 강서구", "이사폐기물처리", "이사 전후 남은 가구와 생활폐기물을 반출한 사례입니다."),
+    ("009", "노원구 빈집정리 폐기물 처리 사례", "서울 노원구", "빈집정리", "비어 있던 주택의 가구와 생활폐기물을 정리한 사례입니다."),
+    ("010", "동작구 원룸 생활폐기물 정리 사례", "서울 동작구", "생활폐기물처리", "원룸에 쌓인 생활용품과 소형가구를 분리 정리한 사례입니다."),
+    ("011", "광진구 가정폐기물 처리 사례", "서울 광진구", "가정폐기물처리", "단독주택 내부 생활폐기물과 대형가구를 정리한 사례입니다."),
+    ("012", "구로구 상가 폐업폐기물 처리 사례", "서울 구로구", "폐업폐기물처리", "폐업 후 남은 집기류와 사무용품을 분류·반출한 사례입니다."),
+    ("013", "성북구 이사폐기물 처리 사례", "서울 성북구", "이사폐기물처리", "이사 후 남은 박스류와 가구를 정리한 사례입니다."),
+    ("014", "강동구 아파트 잔짐 정리 사례", "서울 강동구", "가정폐기물처리", "아파트 내 잔짐과 생활폐기물을 함께 반출한 사례입니다."),
+    ("015", "중랑구 빈집정리 폐기물 처리 사례", "서울 중랑구", "빈집정리", "오래 방치된 공간의 폐기물과 잔여 물품을 정리한 사례입니다."),
+    ("016", "용산구 오피스텔 생활폐기물 정리 사례", "서울 용산구", "생활폐기물처리", "오피스텔에 남은 생활용품과 소형가구를 정리한 사례입니다."),
 ]
 
 CSS_ADD = """
@@ -173,6 +184,7 @@ def build_cases_index(cases):
   <title>서울 폐기물처리 작업후기 | {BRAND}</title>
   <meta name="description" content="서울 가족애폐기물처리 작업후기 모음. 가정폐기물, 이사폐기물, 빈집정리, 폐업폐기물 처리 사례를 확인하세요.">
   <link rel="canonical" href="{DOMAIN}/cases/">
+  <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="../images/main/favicon.png">
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -215,6 +227,7 @@ def build_case_pages(cases):
   <title>{c['title']} | 서울 {BRAND}</title>
   <meta name="description" content="{c['region']} {c['service']} 작업후기. {c['summary']} 상담전화 {PHONE}.">
   <link rel="canonical" href="{DOMAIN}/cases/{c['slug']}/">
+  <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="../../images/main/favicon.png">
   <link rel="stylesheet" href="../../style.css">
 </head>
@@ -275,7 +288,8 @@ def update_index(cases):
     index_path = ROOT / "index.html"
     html = index_path.read_text(encoding="utf-8")
 
-    latest = cases[:6]
+    # 최근 추가분 우선 노출
+    latest = list(reversed(cases[-6:]))
 
     latest_html = f"""
   <section class="section" id="case-reviews">
@@ -324,11 +338,27 @@ def update_index(cases):
   </section>
 """
 
-    if 'id="case-reviews"' not in html:
-        html = html.replace('<section class="section reviews" id="reviews">', latest_html + '\n\n  <section class="section reviews" id="reviews">', 1)
+    if 'id="case-reviews"' in html:
+        html = re.sub(
+            r'\s*<section class="section" id="case-reviews">.*?</section>',
+            "\n" + latest_html,
+            html,
+            count=1,
+            flags=re.DOTALL,
+        )
+    else:
+        html = html.replace(
+            '<section class="section reviews" id="reviews">',
+            latest_html + '\n\n  <section class="section reviews" id="reviews">',
+            1,
+        )
 
     if 'id="family-links"' not in html:
-        html = html.replace('<section class="section" id="contact">', backlinks + '\n\n  <section class="section" id="contact">', 1)
+        html = html.replace(
+            '<section class="section" id="contact">',
+            backlinks + '\n\n  <section class="section" id="contact">',
+            1,
+        )
 
     index_path.write_text(html, encoding="utf-8")
 
